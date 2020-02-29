@@ -1,7 +1,16 @@
 package domain
 
+import utils.DateTimeUtils
 import java.time.LocalDateTime
 
-class PlaySchedule (val startDateTime: LocalDateTime, val capacity: Int){
+data class PlaySchedule(private val startDateTime: LocalDateTime, private val capacity: Int) {
+    fun isInValidNumberOfPerson(numberOfPerson: Int): Boolean {
+        return numberOfPerson > capacity
+    }
 
+    fun checkOneHourWithinRange(playSchedule: PlaySchedule) {
+        if (!DateTimeUtils.isOneHourWithinRange(startDateTime, playSchedule.startDateTime)) {
+            throw IllegalArgumentException()
+        }
+    }
 }
