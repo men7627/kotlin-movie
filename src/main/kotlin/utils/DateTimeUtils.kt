@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter
 class DateTimeUtils {
     companion object {
         const val PLAYING_TIME_FORMAT = "yyyy-MM-dd HH:mm"
-        const val ONE_HOURS = 1L
+        private const val ONE_HOURS = 1L
 
         fun createDateTime(dateTime: String): LocalDateTime {
             return createDateTime(dateTime, PLAYING_TIME_FORMAT)

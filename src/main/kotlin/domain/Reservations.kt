@@ -1,9 +1,7 @@
 package domain
 
-import java.lang.IllegalArgumentException
-
 class Reservations {
-    private val reservations by lazy {
+    val reservations by lazy {
         mutableListOf<Reservation>()
     }
 
