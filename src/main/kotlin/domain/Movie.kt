@@ -3,7 +3,7 @@ package domain
 data class Movie(
     private val id: Long,
     private val title: String,
-    private val price: Int
+    val price: Int
 ) {
     private val playSchedules by lazy {
         mutableListOf<PlaySchedule>()

@@ -14,4 +14,8 @@ data class Reservation(private val movie: Movie, private val numberOfSchedule: I
     fun getPlaySchedule(): PlaySchedule {
         return movie.getSchedule(numberOfSchedule)
     }
+
+    fun getTotalPayment(): Int {
+        return movie.price * numberOfPerson
+    }
 }
