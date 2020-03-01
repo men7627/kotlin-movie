@@ -1,5 +1,7 @@
 package domain
 
+import java.lang.IllegalArgumentException
+
 class Reservations {
     private val reservations by lazy {
         mutableListOf<Reservation>()
@@ -10,13 +12,19 @@ class Reservations {
             reservations.add(reservation)
             return
         }
-        checkValidPlaySchedule(reservation.getPlaySchedule())
+        checkValidPlaySchedules(reservation.getPlaySchedule())
         reservations.add(reservation)
     }
 
-    private fun checkValidPlaySchedule(playSchedule: PlaySchedule) {
+    private fun checkValidPlaySchedules(playSchedule: PlaySchedule) {
         for (reservation in reservations) {
-            playSchedule.checkOneHourWithinRange(reservation.getPlaySchedule())
+            checkValidPlaySchedule(playSchedule, reservation)
+        }
+    }
+
+    private fun checkValidPlaySchedule(playSchedule: PlaySchedule, reservation: Reservation) {
+        if (!playSchedule.isOneHourWithinRange(reservation.getPlaySchedule())) {
+            throw IllegalArgumentException()
         }
     }
 

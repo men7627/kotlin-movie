@@ -8,9 +8,7 @@ data class PlaySchedule(private val startDateTime: LocalDateTime, private val ca
         return numberOfPerson > capacity
     }
 
-    fun checkOneHourWithinRange(playSchedule: PlaySchedule) {
-        if (!DateTimeUtils.isOneHourWithinRange(startDateTime, playSchedule.startDateTime)) {
-            throw IllegalArgumentException()
-        }
+    fun isOneHourWithinRange(playSchedule: PlaySchedule): Boolean {
+        return DateTimeUtils.isOneHourWithinRange(startDateTime, playSchedule.startDateTime)
     }
 }
