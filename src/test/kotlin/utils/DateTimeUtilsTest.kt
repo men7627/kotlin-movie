@@ -14,7 +14,7 @@ internal class DateTimeUtilsTest {
         val formatter = DateTimeFormatter.ofPattern(DateTimeUtils.PLAYING_TIME_FORMAT)
         val createdLocalDateTime = DateTimeUtils.createDateTime(dateTime)
 
-        println(createdLocalDateTime.toString())
+        println(createdLocalDateTime)
         assertThat(createdLocalDateTime).isEqualTo(
             LocalDateTime.parse(dateTime, formatter)
         )

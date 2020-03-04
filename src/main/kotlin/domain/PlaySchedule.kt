@@ -11,4 +11,8 @@ data class PlaySchedule(private val startDateTime: LocalDateTime, private val ca
     fun isOneHourWithinRange(playSchedule: PlaySchedule): Boolean {
         return DateTimeUtils.isOneHourWithinRange(startDateTime, playSchedule.startDateTime)
     }
+
+    override fun toString(): String {
+        return "시작시간: ${DateTimeUtils.format(startDateTime)} 예약가능인원:$capacity\n"
+    }
 }
