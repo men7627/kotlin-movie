@@ -15,9 +15,7 @@ class Payment(
 
     private fun calculatePurePayment(): Int {
         var sum = 0
-        for (reservation in reservations.reservations) {
-            sum += reservation.getTotalPayment()
-        }
+        reservations.reservations.forEach { sum += it.getTotalPayment() }
         return sum
     }
 }
