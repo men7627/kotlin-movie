@@ -50,7 +50,7 @@ class InputView {
         fun inputPoint(): Int {
             println(
                 """${MESSAGE_START}결제를 진행합니다.
-                |${MESSAGE_START}포인트 사용 금액을 입력하세. 포인트가 없으면 0 입력
+                |${MESSAGE_START}포인트 사용 금액을 입력하세요. 포인트가 없으면 0 입력
             """.trimMargin()
             )
             val point = Scanner(System.`in`).nextInt()
@@ -61,7 +61,7 @@ class InputView {
         }
 
         fun inputPaymentMethod(): Int {
-            println("${MESSAGE_START}신용카드는 1번, 현금은 2번 다음")
+            println("${MESSAGE_START}신용카드는 1번, 현금은 2번")
             val choice = Scanner(System.`in`).nextInt()
             if (choice != 1 && choice != 2) {
                 throw java.lang.IllegalArgumentException("선택 오류")

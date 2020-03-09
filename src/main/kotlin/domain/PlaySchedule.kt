@@ -3,7 +3,7 @@ package domain
 import utils.DateTimeUtils
 import java.time.LocalDateTime
 
-data class PlaySchedule(val startDateTime: LocalDateTime, private val capacity: Int) {
+data class PlaySchedule(val startDateTime: LocalDateTime, val capacity: Int) {
     fun isInValidNumberOfPerson(numberOfPerson: Int): Boolean {
         return numberOfPerson > capacity
     }

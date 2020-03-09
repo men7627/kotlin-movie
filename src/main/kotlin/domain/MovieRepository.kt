@@ -3,7 +3,7 @@ package domain
 import utils.DateTimeUtils.Companion.createDateTime
 
 object MovieRepository {
-    private val MOVIES = listOf<Movie>(
+    private val MOVIES = listOf(
         Movie(1, "생일", 8_000).apply {
             addPlaySchedule(PlaySchedule(createDateTime("2019-04-16 12:00"), 6))
             addPlaySchedule(PlaySchedule(createDateTime("2019-04-16 14:40"), 6))
@@ -34,4 +34,12 @@ object MovieRepository {
     fun getMovies(): List<Movie> {
         return MOVIES
     }
+
+    fun getMovie(id: Long): Movie {
+        return MOVIES.stream()
+            .filter { it.id == id }
+            .findFirst()
+            .orElseThrow { throw IllegalAccessException("영화 없음") }
+    }
+
 }

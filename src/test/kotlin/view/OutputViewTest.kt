@@ -14,7 +14,8 @@ internal class OutputViewTest {
     @Test
     @DisplayName("해당 영화 스케줄 출력")
     internal fun printPlaySchedule() {
-        OutputView.printPlaySchedule(1)
+        val movie1 = MovieRepository.getMovies()[0]
+        OutputView.printPlaySchedule(movie1)
     }
 
     @Test
@@ -44,6 +45,6 @@ internal class OutputViewTest {
         reservations.addReservation(reservation)
         val payment = Payment(reservations, 0, PaymentMethod.CREDIT_CART)
 
-        OutputView.printFinalPayment(payment)
+        OutputView.printFinalPayment(payment.finalPayment)
     }
 }
