@@ -10,7 +10,7 @@ class Reservations {
             reservations.add(reservation)
             return
         }
-        checkValidPlaySchedules(reservation.getPlaySchedule())
+        checkValidPlaySchedules(reservation.schedule)
         reservations.add(reservation)
     }
 
@@ -21,7 +21,7 @@ class Reservations {
     }
 
     private fun checkValidPlaySchedule(playSchedule: PlaySchedule, reservation: Reservation) {
-        if (!playSchedule.isOneHourWithinRange(reservation.getPlaySchedule())) {
+        if (!playSchedule.isOneHourWithinRange(reservation.schedule)) {
             throw IllegalArgumentException()
         }
     }

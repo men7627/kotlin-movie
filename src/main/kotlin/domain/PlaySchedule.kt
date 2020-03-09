@@ -3,7 +3,7 @@ package domain
 import utils.DateTimeUtils
 import java.time.LocalDateTime
 
-data class PlaySchedule(private val startDateTime: LocalDateTime, private val capacity: Int) {
+data class PlaySchedule(val startDateTime: LocalDateTime, private val capacity: Int) {
     fun isInValidNumberOfPerson(numberOfPerson: Int): Boolean {
         return numberOfPerson > capacity
     }
@@ -13,6 +13,6 @@ data class PlaySchedule(private val startDateTime: LocalDateTime, private val ca
     }
 
     override fun toString(): String {
-        return "시작시간: ${DateTimeUtils.format(startDateTime)} 예약가능인원:$capacity\n"
+        return "시작시간: ${DateTimeUtils.format(startDateTime)} 예약가능인원:$capacity"
     }
 }

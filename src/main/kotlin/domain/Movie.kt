@@ -1,13 +1,11 @@
 package domain
 
-import java.lang.StringBuilder
-
 data class Movie(
-    private val id: Long,
-    private val title: String,
+    val id: Long,
+    val title: String,
     val price: Int
 ) {
-    private val playSchedules by lazy {
+    val playSchedules by lazy {
         mutableListOf<PlaySchedule>()
     }
 
@@ -20,11 +18,6 @@ data class Movie(
     }
 
     override fun toString(): String {
-        val stringBuilder = StringBuilder()
-        stringBuilder.append("$id - $title, ${price}원\n")
-
-        playSchedules.forEach { stringBuilder.append(it.toString()) }
-
-        return stringBuilder.toString()
+        return "$id - $title, ${price}원"
     }
 }
